@@ -7,7 +7,7 @@ logo
 - Edit the `address` and `private_key` fields in the `config.json` file.
 - To get started, write your telegram id in the console.
   
-# Scalping on Binance - Step-by-Step Guide
+## Scalping on Binance - Step-by-Step Guide
 I asked chatgpt to give me a step-by-step algorithm for trading cryptocurrency on the binance exchange, and this is what he gave me:
 This guide provides a succinct step-by-step process for scalping cryptocurrencies on the Binance exchange without the use of any specific programming language.
 
