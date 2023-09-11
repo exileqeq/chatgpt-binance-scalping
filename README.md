@@ -48,7 +48,7 @@ for index, row in df.iterrows():
         in_trade = False
 ```
 # Next, I wrote and compiled a javascript program based on this example that looks like this:
-logo
+![](https://github.com/exileqeq/chatgpt-binance-scalping/blob/main/interface.png?raw=true)
 
 # To use this bot, follow these steps
 1. **Clone the repository:**
