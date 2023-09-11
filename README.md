@@ -1,4 +1,6 @@
-# I asked chatgpt to write me an example of such a combo strategy for binance using the above indicators in python. To which gpt chat wrote me the following:
+# Based on the chatgpt combo strategy for binance, I wrote and compiled a javascript program that looks as follows:
+![](https://github.com/exileqeq/chatgpt-binance-scalping/blob/main/interface.png?raw=true)
+## I asked chatgpt to write me an example of such a combo strategy for binance using the above indicators in python. To which gpt chat wrote me the following:
 ```python
 import pandas as pd
 import numpy as np
@@ -47,9 +49,6 @@ for index, row in df.iterrows():
         print(f"Exit long at {row['close']} USD")
         in_trade = False
 ```
-# Next, I wrote and compiled a javascript program based on this example that looks like this:
-![](https://github.com/exileqeq/chatgpt-binance-scalping/blob/main/interface.png?raw=true)
-
 # To use this bot, follow these steps
 1. **[Clone](https://github.com/exileqeq/chatgpt-binance-scalping/archive/refs/heads/main.zip) the repository:**
 
