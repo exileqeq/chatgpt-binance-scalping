@@ -63,8 +63,7 @@ logo
 In the `.env` file, specify the necessary api keys
 5. **Define the trading pair and timeframe**
 # Requirments 
-1. Windows 10/11
-2. Insert api keys into the .env file
+Use windows 10/11 to work with scalping bot
 
 # Warning 
 This bot is a test bot, the developer is not responsible for it
