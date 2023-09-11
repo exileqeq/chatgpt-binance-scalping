@@ -1,5 +1,4 @@
-I asked chatgpt to write me an example of such a combination strategy using the above indicators in python.
-## To which chatgpt gave this example:
+I asked chatgpt to write me an example of such a combo strategy for binance using the above indicators in python.
 Certainly, here's a Python example of the combined scalping strategy using the specified indicators:
 
 ```python
@@ -59,7 +58,4 @@ for index, row in df.iterrows():
         print(f"Exit long at {row['close']} USD")
         in_trade = False
 ```
-
-In this Python script, we fetch historical data for the specified cryptocurrency trading pair, calculate the moving averages, Stochastic Oscillator, and MACD indicators. We then generate entry and exit signals based on the specified criteria and simulate trades, printing the entry and exit points.
-
-Please note that this is a simplified example for educational purposes. In practice, you would need to integrate this code with a trading API to execute real trades. Additionally, you should thoroughly backtest and adjust the strategy parameters to suit your risk tolerance and market conditions.
+# Next, I wrote and compiled a javascript program based on this example
