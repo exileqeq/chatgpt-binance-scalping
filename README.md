@@ -1,7 +1,4 @@
-I asked chatgpt to write me an example of such a combo strategy for binance using the above indicators in python.
-Certainly, here's a Python example of the combined scalping strategy using the specified indicators:
-
-Certainly, here's a shorter version of the code:
+# I asked chatgpt to write me an example of such a combo strategy for binance using the above indicators in python. Certainly, here's a Python example of the combined scalping strategy using the specified indicators:
 ```python
 import pandas as pd
 import numpy as np
