@@ -47,7 +47,6 @@ for index, row in df.iterrows():
         print(f"Exit long at {row['close']} USD")
         in_trade = False
 ```
-This version maintains the same functionality while condensing the code by removing redundant adjustments in the moving average calculations and simplifying the code structure.
 # Next, I wrote and compiled a javascript program based on this example that looks like this:
 logo
 
@@ -62,6 +61,7 @@ logo
 4. **Configure your environment:**
 In the `.env` file, specify the necessary api keys
 5. **Define the trading pair and timeframe**
+6. **Select the amount in the bot**
 # Requirments 
 Use windows 10/11 to work with scalping bot
 
