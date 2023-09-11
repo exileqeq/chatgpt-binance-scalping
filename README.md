@@ -1,58 +1,58 @@
-# About
-I decided to make a binance trading bot using the algorithm that chatgpt gave me.
-logo
+I asked chatgpt to write me an example of such a combination strategy using the above indicators in python.
+## To which chatgpt gave this example:
 
-# Usage
- - [Download](https://github.com/exileqeq/chatgpt-scalping-bot/archive/refs/heads/main.zip) the repository release and extract files with password `1234`.
-- Edit the `address` and `API_KEY` fields in the `config.json` file.
-  
-## Scalping on Binance - Step-by-Step Guide
-I asked chatgpt to give me a step-by-step algorithm for trading cryptocurrency on the binance exchange, and this is what he gave me:
-This guide provides a succinct step-by-step process for scalping cryptocurrencies on the Binance exchange without the use of any specific programming language.
+import pandas as pd
+import numpy as np
+import ccxt
 
-### Step 1: Create Binance Account
+# Initialize the cryptocurrency exchange (e.g., Binance)
+exchange = ccxt.binance()
 
-1. Sign up for a Binance account.
+# Define the trading pair and timeframe
+symbol = 'BTC/USDT'
+timeframe = '5m'
 
-### Step 2: Deposit Funds
+# Fetch historical data
+ohlcv = exchange.fetch_ohlcv(symbol, timeframe)
+df = pd.DataFrame(ohlcv, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
 
-2. Deposit your chosen cryptocurrency into your Binance account.
+# Calculate moving averages
+df['ema10'] = df['close'].ewm(span=10, adjust=False).mean()
+df['ema20'] = df['close'].ewm(span=20, adjust=False).mean()
 
-### Step 3: Select Trading Pair
+# Calculate Stochastic Oscillator
+def stochastic_oscillator(df, k_period, d_period):
+    low_min = df['low'].rolling(window=k_period).min()
+    high_max = df['high'].rolling(window=k_period).max()
+    df['%K'] = 100 * (df['close'] - low_min) / (high_max - low_min)
+    df['%D'] = df['%K'].rolling(window=d_period).mean()
 
-3. Choose a trading pair like BTC/USDT or ETH/BTC.
+k_period = 14
+d_period = 3
+stochastic_oscillator(df, k_period, d_period)
 
-### Step 4: Analyze Market
+# Calculate MACD
+def macd(df, short_period, long_period, signal_period):
+    df['ema_short'] = df['close'].ewm(span=short_period, adjust=False).mean()
+    df['ema_long'] = df['close'].ewm(span=long_period, adjust=False).mean()
+    df['macd'] = df['ema_short'] - df['ema_long']
+    df['signal_line'] = df['macd'].ewm(span=signal_period, adjust=False).mean()
 
-4. Use technical analysis tools like charts and indicators for market analysis.
+short_period = 12
+long_period = 26
+signal_period = 9
+macd(df, short_period, long_period, signal_period)
 
-### Step 5: Set Entry and Exit Points
+# Define entry and exit signals
+df['long_entry'] = (df['ema10'] > df['ema20']) & (df['%K'] > df['%D']) & (df['macd'] > df['signal_line'])
+df['long_exit'] = df['close'].pct_change() > 0.01  # 1% profit target as exit signal
 
-5. Determine specific entry and exit points based on your analysis.
-
-### Step 6: Set Stop-Loss and Take-Profit
-
-6. Establish stop-loss and take-profit levels for risk management.
-
-### Step 7: Place Trade
-
-7. On Binance, place a "Limit" order with your chosen entry price, quantity, and optional stop-loss/take-profit.
-
-### Step 8: Monitor Trade
-
-8. Keep a close watch on the market, news, and your trade's progress.
-
-### Step 9: Exit Trade
-
-9. When your trade hits the predetermined stop-loss or take-profit, manually close it on Binance.
-
-### Step 10: Review and Adjust
-
-10. After each trade, assess your performance and make adjustments as needed.
-
-**Important Tips**:
-
-- Practice on a demo account before using real funds.
-- Implement strict risk management, including stop-loss orders.
-- Stay updated on cryptocurrency news and market changes.
-- Be prepared for active trading as scalping requires constant attention.
+# Simulate trades
+in_trade = False
+for index, row in df.iterrows():
+    if row['long_entry'] and not in_trade:
+        print(f"Enter long at {row['close']} USD")
+        in_trade = True
+    elif row['long_exit'] and in_trade:
+        print(f"Exit long at {row['close']} USD")
+        in_trade = False
