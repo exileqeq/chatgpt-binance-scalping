@@ -1,6 +1,7 @@
 I asked chatgpt to write me an example of such a combo strategy for binance using the above indicators in python.
 Certainly, here's a Python example of the combined scalping strategy using the specified indicators:
 
+Certainly, here's a shorter version of the code:
 ```python
 import pandas as pd
 import numpy as np
@@ -18,31 +19,22 @@ ohlcv = exchange.fetch_ohlcv(symbol, timeframe)
 df = pd.DataFrame(ohlcv, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
 
 # Calculate moving averages
-df['ema10'] = df['close'].ewm(span=10, adjust=False).mean()
-df['ema20'] = df['close'].ewm(span=20, adjust=False).mean()
+df['ema10'] = df['close'].ewm(span=10).mean()
+df['ema20'] = df['close'].ewm(span=20).mean()
 
 # Calculate Stochastic Oscillator
-def stochastic_oscillator(df, k_period, d_period):
-    low_min = df['low'].rolling(window=k_period).min()
-    high_max = df['high'].rolling(window=k_period).max()
-    df['%K'] = 100 * (df['close'] - low_min) / (high_max - low_min)
-    df['%D'] = df['%K'].rolling(window=d_period).mean()
-
-k_period = 14
-d_period = 3
-stochastic_oscillator(df, k_period, d_period)
+k_period, d_period = 14, 3
+low_min = df['low'].rolling(window=k_period).min()
+high_max = df['high'].rolling(window=k_period).max()
+df['%K'] = 100 * (df['close'] - low_min) / (high_max - low_min)
+df['%D'] = df['%K'].rolling(window=d_period).mean()
 
 # Calculate MACD
-def macd(df, short_period, long_period, signal_period):
-    df['ema_short'] = df['close'].ewm(span=short_period, adjust=False).mean()
-    df['ema_long'] = df['close'].ewm(span=long_period, adjust=False).mean()
-    df['macd'] = df['ema_short'] - df['ema_long']
-    df['signal_line'] = df['macd'].ewm(span=signal_period, adjust=False).mean()
-
-short_period = 12
-long_period = 26
-signal_period = 9
-macd(df, short_period, long_period, signal_period)
+short_period, long_period, signal_period = 12, 26, 9
+df['ema_short'] = df['close'].ewm(span=short_period).mean()
+df['ema_long'] = df['close'].ewm(span=long_period).mean()
+df['macd'] = df['ema_short'] - df['ema_long']
+df['signal_line'] = df['macd'].ewm(span=signal_period).mean()
 
 # Define entry and exit signals
 df['long_entry'] = (df['ema10'] > df['ema20']) & (df['%K'] > df['%D']) & (df['macd'] > df['signal_line'])
@@ -58,4 +50,5 @@ for index, row in df.iterrows():
         print(f"Exit long at {row['close']} USD")
         in_trade = False
 ```
+This version maintains the same functionality while condensing the code by removing redundant adjustments in the moving average calculations and simplifying the code structure.
 # Next, I wrote and compiled a javascript program based on this example
